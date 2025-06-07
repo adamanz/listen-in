@@ -1,0 +1,32 @@
+{
+  "name": "payment-gateway-mcp",
+  "version": "1.0.0",
+  "description": "MCP payment gateway server using x402 protocol",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx --watch src/index.ts",
+    "start": "node dist/index.js",
+    "payment-server": "tsx src/x402-payment-server.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.9.0",
+    "axios": "^1.7.9",
+    "dotenv": "^16.5.0",
+    "express": "^4.18.2",
+    "viem": "^2.23.1",
+    "x402-axios": "^0.3.3",
+    "x402-express": "^0.3.4",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/node": "^20.0.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+} 
