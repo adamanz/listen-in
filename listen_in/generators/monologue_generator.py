@@ -139,18 +139,15 @@ Requirements:
     
     async def _generate_with_openai(self, system_prompt: str, user_prompt: str) -> str:
         """Generate content using OpenAI API."""
-        # Using synchronous client for now
-        completion = self.client.chat.completions.create(
-            model="gpt-3.5-turbo",  # Using gpt-3.5-turbo for now
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt}
-            ],
-            temperature=0.7,
-            max_tokens=4000
+        # Combine system and user prompts for o3 model
+        combined_prompt = f"{system_prompt}\n\n{user_prompt}"
+        
+        response = self.client.responses.create(
+            model="o3-2025-04-16",
+            input=combined_prompt
         )
         
-        return completion.choices[0].message.content
+        return response.output_text
     
     def _format_script(
         self, 

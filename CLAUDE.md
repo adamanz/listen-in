@@ -1,6 +1,42 @@
 # CLAUDE.md - Listen-in Project Guidelines
 
-Use OpenAI Agent SDK /Users/adamanzuoni/listen-in/ai-docs/openai-sdk.md and o3 model 
+Use OpenAI Agent SDK /Users/adamanzuoni/listen-in/ai-docs/openai-sdk.md and o3-2025-04-16 model
+
+## O3 Model Usage
+The project uses the o3-2025-04-16 model which requires specific API syntax:
+
+### Node.js/JavaScript (Preferred)
+```javascript
+import OpenAI from "openai";
+const client = new OpenAI({ apiKey: process.env.OPEN_AI_KEY });
+
+const response = await client.responses.create({
+    model: "o3-2025-04-16",
+    input: "Your prompt here"
+});
+
+console.log(response.output_text);
+```
+
+### Python (if needed)
+```python
+from openai import OpenAI
+client = OpenAI(api_key=os.getenv('OPEN_AI_KEY'))
+
+response = client.responses.create(
+    model="o3-2025-04-16", 
+    input="Your prompt here"
+)
+
+print(response.output_text)
+```
+
+**Important Notes:**
+- Use `responses.create()` NOT `chat.completions.create()`
+- Use `input` parameter NOT `messages`
+- Use `output_text` property for response
+- Model does not support temperature or max_tokens parameters
+- API key in .env file is `OPEN_AI_KEY` 
 
 ## Project Focus
 Listen-in is a POC that transforms local documents into podcast scripts using OpenAI's Agnet /Users/adamanzuoni/listen-in/ai-docs/openai-sdk.mdSDK. The goal is to create natural, engaging audio content from written materials.

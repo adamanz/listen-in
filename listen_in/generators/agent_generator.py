@@ -71,7 +71,7 @@ class AgentGenerator:
         agent = Agent(
             name="PodcastScriptWriter",
             instructions=system_prompt,
-            model="gpt-4.1-mini",  # Using gpt-4.1-mini as o3 is not available
+            model="o3-2025-04-16",
             output_type=PodcastScript
         )
         

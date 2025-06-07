@@ -49,69 +49,23 @@ class O3Generator:
         
         # Generate the script using o3
         try:
-            # Create an assistant with o3 model
-            assistant = await self.client.beta.assistants.create(
-                model="o3",
-                name="Podcast Script Writer",
-                instructions=system_prompt
+            # Combine system and user prompts for o3 model
+            combined_prompt = f"{system_prompt}\n\n{user_prompt}"
+            
+            response = await self.client.responses.create(
+                model="o3-2025-04-16",
+                input=combined_prompt
             )
             
-            # Create a thread
-            thread = await self.client.beta.threads.create()
-            
-            # Send the message
-            await self.client.beta.threads.messages.create(
-                thread_id=thread.id,
-                role="user",
-                content=user_prompt
+            # Format the final script
+            script = self._format_script(
+                response.output_text,
+                metadata,
+                tone,
+                audience
             )
             
-            # Run the assistant
-            run = await self.client.beta.threads.runs.create(
-                thread_id=thread.id,
-                assistant_id=assistant.id,
-                max_completion_tokens=4000
-            )
-            
-            # Wait for completion
-            while run.status in ["queued", "in_progress"]:
-                run = await self.client.beta.threads.runs.retrieve(
-                    thread_id=thread.id,
-                    run_id=run.id
-                )
-                if run.status == "requires_action":
-                    # Handle any required actions if needed
-                    pass
-            
-            if run.status == "completed":
-                # Get the messages
-                messages = await self.client.beta.threads.messages.list(
-                    thread_id=thread.id
-                )
-                
-                # Get the assistant's response
-                for message in messages.data:
-                    if message.role == "assistant":
-                        response = message.content[0].text.value
-                        break
-                else:
-                    raise RuntimeError("No assistant response found")
-                
-                # Format the final script
-                script = self._format_script(
-                    response,
-                    metadata,
-                    tone,
-                    audience
-                )
-                
-                # Clean up - delete assistant and thread
-                await self.client.beta.assistants.delete(assistant.id)
-                await self.client.beta.threads.delete(thread.id)
-                
-                return script
-            else:
-                raise RuntimeError(f"Agent run failed with status: {run.status}")
+            return script
                 
         except Exception as e:
             raise RuntimeError(f"Failed to generate podcast script with o3: {str(e)}")
