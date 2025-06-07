@@ -8,6 +8,7 @@ from pathlib import Path
 from datetime import datetime
 
 from .parsers.text_parser import TextParser
+from .parsers.pdf_parser import PDFParser
 from .generators.monologue_generator import MonologueGenerator
 from .generators.o3_generator import O3Generator
 from .generators.agent_generator import AgentGenerator
@@ -114,7 +115,7 @@ async def generate_podcast_script(
     Generate a podcast script from a local document.
     
     Args:
-        file_path: Path to the input document
+        file_path: Path to the input document (.txt or .pdf)
         style: Script style ('monologue' or 'dialogue')
         tone: Tone of the script (defaults to configured tone)
         audience: Target audience (defaults to configured audience)
@@ -132,12 +133,16 @@ async def generate_podcast_script(
     if not input_path.exists():
         raise FileNotFoundError(f"File not found: {file_path}")
     
-    # Check file extension
-    if input_path.suffix.lower() != '.txt':
-        raise ValueError("Currently only .txt files are supported")
+    # Select parser based on file extension
+    file_extension = input_path.suffix.lower()
+    if file_extension == '.txt':
+        parser = TextParser()
+    elif file_extension == '.pdf':
+        parser = PDFParser()
+    else:
+        raise ValueError(f"Unsupported file type: {file_extension}. Supported: .txt, .pdf")
     
     # Parse the document
-    parser = TextParser()
     content = parser.parse(file_path)
     
     # Generate the script with the selected model and style

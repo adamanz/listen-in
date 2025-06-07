@@ -8,10 +8,11 @@ Listen-in is a proof-of-concept MCP (Model Context Protocol) server that reads l
 
 ## Features
 
-- 📄 Support for text files (.txt) with more formats coming soon
-- 🎙️ Generate monologue-style podcast scripts
+- 📄 Support for text files (.txt) and PDF documents (.pdf)
+- 🎙️ Generate both monologue and dialogue-style podcast scripts
+- 👥 Two-host dialogue with engaging personalities (Alex & Sam)
 - 🎧 Convert scripts to audio with ElevenLabs integration
-- 🤖 Powered by OpenAI's o3 model
+- 🤖 Powered by OpenAI's gpt-4.1-mini model via Agents SDK
 - 🎵 Multiple voice options and quality levels
 - 💾 Save scripts and audio files locally
 - 🔧 Configurable through MCP server tools
@@ -59,10 +60,10 @@ configure(
 
 3. Generate a podcast script:
 ```python
-# Generate a script from a text file
+# Generate a script from a text file or PDF
 result = generate_podcast_script(
-    file_path="path/to/document.txt",
-    style="monologue",
+    file_path="path/to/document.txt",  # or .pdf
+    style="dialogue",  # or "monologue"
     tone="educational",
     audience="beginner"
 )

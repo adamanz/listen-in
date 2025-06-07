@@ -6,3 +6,5 @@ click>=8.1.0
 elevenlabs>=1.0.0
 aiohttp>=3.9.0
 anthropic>=0.39.0
+PyPDF2>=3.0.0
+pdfplumber>=0.10.0
