@@ -1,16 +1,16 @@
-"""Monologue-style podcast script generator."""
+"""O3 model-based podcast script generator using Agents API."""
 
 from typing import Dict, Any, Optional
-import openai
 from datetime import datetime
+from openai import AsyncOpenAI
 
 
-class MonologueGenerator:
-    """Generator for monologue-style podcast scripts."""
+class O3Generator:
+    """Generator for podcast scripts using OpenAI's o3 model via Agents API."""
     
     def __init__(self, api_key: str):
         """Initialize with OpenAI API key."""
-        self.client = openai.OpenAI(api_key=api_key)
+        self.client = AsyncOpenAI(api_key=api_key)
     
     async def generate(
         self,
@@ -20,7 +20,7 @@ class MonologueGenerator:
         custom_instructions: Optional[str] = None
     ) -> str:
         """
-        Generate a monologue podcast script from parsed content.
+        Generate a monologue podcast script from parsed content using o3.
         
         Args:
             content: Parsed document content with metadata
@@ -47,22 +47,74 @@ class MonologueGenerator:
             custom_instructions
         )
         
-        # Generate the script
+        # Generate the script using o3
         try:
-            response = await self._generate_with_openai(system_prompt, user_prompt)
-            
-            # Format the final script
-            script = self._format_script(
-                response,
-                metadata,
-                tone,
-                audience
+            # Create an assistant with o3 model
+            assistant = await self.client.beta.assistants.create(
+                model="o3",
+                name="Podcast Script Writer",
+                instructions=system_prompt
             )
             
-            return script
+            # Create a thread
+            thread = await self.client.beta.threads.create()
             
+            # Send the message
+            await self.client.beta.threads.messages.create(
+                thread_id=thread.id,
+                role="user",
+                content=user_prompt
+            )
+            
+            # Run the assistant
+            run = await self.client.beta.threads.runs.create(
+                thread_id=thread.id,
+                assistant_id=assistant.id,
+                max_completion_tokens=4000
+            )
+            
+            # Wait for completion
+            while run.status in ["queued", "in_progress"]:
+                run = await self.client.beta.threads.runs.retrieve(
+                    thread_id=thread.id,
+                    run_id=run.id
+                )
+                if run.status == "requires_action":
+                    # Handle any required actions if needed
+                    pass
+            
+            if run.status == "completed":
+                # Get the messages
+                messages = await self.client.beta.threads.messages.list(
+                    thread_id=thread.id
+                )
+                
+                # Get the assistant's response
+                for message in messages.data:
+                    if message.role == "assistant":
+                        response = message.content[0].text.value
+                        break
+                else:
+                    raise RuntimeError("No assistant response found")
+                
+                # Format the final script
+                script = self._format_script(
+                    response,
+                    metadata,
+                    tone,
+                    audience
+                )
+                
+                # Clean up - delete assistant and thread
+                await self.client.beta.assistants.delete(assistant.id)
+                await self.client.beta.threads.delete(thread.id)
+                
+                return script
+            else:
+                raise RuntimeError(f"Agent run failed with status: {run.status}")
+                
         except Exception as e:
-            raise RuntimeError(f"Failed to generate podcast script: {str(e)}")
+            raise RuntimeError(f"Failed to generate podcast script with o3: {str(e)}")
     
     def _build_system_prompt(self, tone: str, audience: str) -> str:
         """Build the system prompt for the LLM."""
@@ -111,6 +163,24 @@ Key guidelines:
         custom_instructions: Optional[str]
     ) -> str:
         """Build the user prompt with document content."""
+        # For large documents, create a summary first
+        word_count = metadata.get('word_count', 0)
+        
+        # If document is very large, truncate intelligently
+        if word_count > 3000:
+            # Take beginning, middle, and end sections
+            lines = content.split('\n')
+            total_lines = len(lines)
+            
+            # Take first 30%, middle 40%, last 30%
+            first_section = '\n'.join(lines[:int(total_lines * 0.3)])
+            middle_start = int(total_lines * 0.3)
+            middle_end = int(total_lines * 0.7)
+            middle_section = '\n'.join(lines[middle_start:middle_end])
+            last_section = '\n'.join(lines[int(total_lines * 0.7):])
+            
+            content = f"{first_section}\n\n[... content truncated ...]\n\n{middle_section}\n\n[... content truncated ...]\n\n{last_section}"
+            
         prompt = f"""Transform this document into an engaging podcast monologue script.
 
 Document Title: {metadata.get('title', 'Untitled')}
@@ -137,21 +207,6 @@ Requirements:
         
         return prompt
     
-    async def _generate_with_openai(self, system_prompt: str, user_prompt: str) -> str:
-        """Generate content using OpenAI API."""
-        # Using synchronous client for now
-        completion = self.client.chat.completions.create(
-            model="gpt-3.5-turbo",  # Using gpt-3.5-turbo for now
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt}
-            ],
-            temperature=0.7,
-            max_tokens=4000
-        )
-        
-        return completion.choices[0].message.content
-    
     def _format_script(
         self, 
         raw_script: str, 
@@ -171,13 +226,14 @@ Requirements:
 - Tone: {tone}
 - Audience: {audience}
 - Generated: {timestamp}
+- Model: OpenAI o3
 
 ## Script
 
 {raw_script}
 
 ---
-*Generated by Listen-in - Transform documents into engaging podcasts*
+*Generated by Listen-in with OpenAI o3 - Transform documents into engaging podcasts*
 """
         
         return formatted_script

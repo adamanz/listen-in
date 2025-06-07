@@ -79,7 +79,7 @@ class AudioGenerator:
         async with aiohttp.ClientSession() as session:
             try:
                 async with session.post(
-                    f"{self.base_url}/studios/create",
+                    f"{self.base_url}/projects/add",
                     headers=headers,
                     json=payload
                 ) as response:
@@ -156,7 +156,7 @@ class AudioGenerator:
         
         for _ in range(max_attempts):
             async with session.get(
-                f"{self.base_url}/studios/{project_id}",
+                f"{self.base_url}/projects/{project_id}",
                 headers=headers
             ) as response:
                 if response.status != 200:

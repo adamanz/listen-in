@@ -1,16 +1,36 @@
-"""Monologue-style podcast script generator."""
+"""Podcast script generator using OpenAI Agents SDK."""
 
+import os
 from typing import Dict, Any, Optional
-import openai
 from datetime import datetime
+from agents import Agent, Runner
+from pydantic import BaseModel
 
 
-class MonologueGenerator:
-    """Generator for monologue-style podcast scripts."""
+class PodcastScript(BaseModel):
+    """Output schema for podcast script generation."""
+    title: str
+    """The title of the podcast episode."""
+    
+    introduction: str
+    """The engaging introduction that hooks the listener."""
+    
+    main_content: str
+    """The main body of the podcast script with transitions and markers."""
+    
+    conclusion: str
+    """The memorable conclusion that summarizes key takeaways."""
+    
+    estimated_duration_minutes: int
+    """Estimated speaking duration in minutes."""
+
+
+class AgentGenerator:
+    """Generator for podcast scripts using OpenAI's Agents SDK."""
     
     def __init__(self, api_key: str):
         """Initialize with OpenAI API key."""
-        self.client = openai.OpenAI(api_key=api_key)
+        self.api_key = api_key
     
     async def generate(
         self,
@@ -20,7 +40,7 @@ class MonologueGenerator:
         custom_instructions: Optional[str] = None
     ) -> str:
         """
-        Generate a monologue podcast script from parsed content.
+        Generate a monologue podcast script from parsed content using Agents SDK.
         
         Args:
             content: Parsed document content with metadata
@@ -47,20 +67,37 @@ class MonologueGenerator:
             custom_instructions
         )
         
-        # Generate the script
+        # Create the agent with gpt-4.1-mini model
+        agent = Agent(
+            name="PodcastScriptWriter",
+            instructions=system_prompt,
+            model="gpt-4.1-mini",  # Using gpt-4.1-mini as o3 is not available
+            output_type=PodcastScript
+        )
+        
+        # Generate the script using Runner
         try:
-            response = await self._generate_with_openai(system_prompt, user_prompt)
+            # Set API key as environment variable
+            os.environ['OPENAI_API_KEY'] = self.api_key
+            
+            result = await Runner.run(
+                agent,
+                user_prompt
+            )
+            
+            # Extract the structured output
+            script_data = result.final_output
             
             # Format the final script
-            script = self._format_script(
-                response,
+            script = self._format_script_from_structured(
+                script_data,
                 metadata,
                 tone,
                 audience
             )
             
             return script
-            
+                
         except Exception as e:
             raise RuntimeError(f"Failed to generate podcast script: {str(e)}")
     
@@ -101,7 +138,9 @@ Key guidelines:
 5. Keep sentences short and punchy for audio
 6. Use active voice
 7. Include time estimates for sections
-8. Make complex topics accessible through analogies and examples"""
+8. Make complex topics accessible through analogies and examples
+
+Output a structured podcast script with clear sections."""
     
     def _build_user_prompt(
         self, 
@@ -111,6 +150,24 @@ Key guidelines:
         custom_instructions: Optional[str]
     ) -> str:
         """Build the user prompt with document content."""
+        # For large documents, create a summary first
+        word_count = metadata.get('word_count', 0)
+        
+        # If document is very large, truncate intelligently
+        if word_count > 3000:
+            # Take beginning, middle, and end sections
+            lines = content.split('\n')
+            total_lines = len(lines)
+            
+            # Take first 30%, middle 40%, last 30%
+            first_section = '\n'.join(lines[:int(total_lines * 0.3)])
+            middle_start = int(total_lines * 0.3)
+            middle_end = int(total_lines * 0.7)
+            middle_section = '\n'.join(lines[middle_start:middle_end])
+            last_section = '\n'.join(lines[int(total_lines * 0.7):])
+            
+            content = f"{first_section}\n\n[... content truncated ...]\n\n{middle_section}\n\n[... content truncated ...]\n\n{last_section}"
+            
         prompt = f"""Transform this document into an engaging podcast monologue script.
 
 Document Title: {metadata.get('title', 'Untitled')}
@@ -137,47 +194,40 @@ Requirements:
         
         return prompt
     
-    async def _generate_with_openai(self, system_prompt: str, user_prompt: str) -> str:
-        """Generate content using OpenAI API."""
-        # Using synchronous client for now
-        completion = self.client.chat.completions.create(
-            model="gpt-3.5-turbo",  # Using gpt-3.5-turbo for now
-            messages=[
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt}
-            ],
-            temperature=0.7,
-            max_tokens=4000
-        )
-        
-        return completion.choices[0].message.content
-    
-    def _format_script(
+    def _format_script_from_structured(
         self, 
-        raw_script: str, 
+        script_data: PodcastScript, 
         metadata: Dict[str, Any],
         tone: str,
         audience: str
     ) -> str:
-        """Format the generated script with metadata."""
+        """Format the structured output into a markdown script."""
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         
-        formatted_script = f"""# Podcast Script: {metadata.get('title', 'Untitled')}
+        formatted_script = f"""# Podcast Script: {script_data.title}
 
 ## Metadata
 - Source: {metadata.get('filename', 'Unknown')}
-- Duration: ~{metadata.get('word_count', 0) // 150} minutes
+- Duration: ~{script_data.estimated_duration_minutes} minutes
 - Style: Monologue
 - Tone: {tone}
 - Audience: {audience}
 - Generated: {timestamp}
+- Model: OpenAI gpt-4.1-mini (via Agents SDK)
 
 ## Script
 
-{raw_script}
+### Introduction
+{script_data.introduction}
+
+### Main Content
+{script_data.main_content}
+
+### Conclusion
+{script_data.conclusion}
 
 ---
-*Generated by Listen-in - Transform documents into engaging podcasts*
+*Generated by Listen-in with OpenAI gpt-4.1-mini - Transform documents into engaging podcasts*
 """
         
         return formatted_script

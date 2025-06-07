@@ -9,6 +9,8 @@ from datetime import datetime
 
 from .parsers.text_parser import TextParser
 from .generators.monologue_generator import MonologueGenerator
+from .generators.o3_generator import O3Generator
+from .generators.agent_generator import AgentGenerator
 from .generators.audio_generator import AudioGenerator
 from .utils.file_utils import save_script
 from .config import (
@@ -103,7 +105,8 @@ async def generate_podcast_script(
     style: str = "monologue",
     tone: Optional[str] = None,
     audience: Optional[str] = None,
-    custom_instructions: Optional[str] = None
+    custom_instructions: Optional[str] = None,
+    model: str = "o3"
 ) -> dict:
     """
     Generate a podcast script from a local document.
@@ -114,6 +117,7 @@ async def generate_podcast_script(
         tone: Tone of the script (defaults to configured tone)
         audience: Target audience (defaults to configured audience)
         custom_instructions: Additional instructions for script generation
+        model: Model to use ("o3" for gpt-4.1-mini via Agents SDK or "gpt-3.5-turbo")
         
     Returns:
         Dictionary with script_path and metadata
@@ -134,8 +138,11 @@ async def generate_podcast_script(
     parser = TextParser()
     content = parser.parse(file_path)
     
-    # Generate the script
-    generator = MonologueGenerator(api_key=config.openai_api_key)
+    # Generate the script with the selected model
+    if model == "o3":
+        generator = AgentGenerator(api_key=config.openai_api_key)
+    else:
+        generator = MonologueGenerator(api_key=config.openai_api_key)
     
     script = await generator.generate(
         content=content,
