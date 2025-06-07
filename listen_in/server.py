@@ -12,6 +12,8 @@ from .generators.monologue_generator import MonologueGenerator
 from .generators.o3_generator import O3Generator
 from .generators.agent_generator import AgentGenerator
 from .generators.audio_generator import AudioGenerator
+from .generators.dialogue_generator import DialogueGenerator
+from .generators.simple_dialogue_audio import SimpleDialogueAudioGenerator
 from .utils.file_utils import save_script
 from .config import (
     OPENAI_API_KEY, 
@@ -113,7 +115,7 @@ async def generate_podcast_script(
     
     Args:
         file_path: Path to the input document
-        style: Script style (currently only 'monologue' supported)
+        style: Script style ('monologue' or 'dialogue')
         tone: Tone of the script (defaults to configured tone)
         audience: Target audience (defaults to configured audience)
         custom_instructions: Additional instructions for script generation
@@ -138,8 +140,10 @@ async def generate_podcast_script(
     parser = TextParser()
     content = parser.parse(file_path)
     
-    # Generate the script with the selected model
-    if model == "o3":
+    # Generate the script with the selected model and style
+    if style == "dialogue":
+        generator = DialogueGenerator(api_key=config.openai_api_key)
+    elif model == "o3":
         generator = AgentGenerator(api_key=config.openai_api_key)
     else:
         generator = MonologueGenerator(api_key=config.openai_api_key)
@@ -241,18 +245,32 @@ async def generate_podcast_audio(
             available_voices = ", ".join(PODCAST_VOICES.keys())
             raise ValueError(f"Unknown voice name: {voice_name}. Available: {available_voices}")
     
-    # Generate audio
-    generator = AudioGenerator(api_key=config.elevenlabs_api_key)
+    # Check if it's a dialogue script by looking for dialogue markers
+    is_dialogue = "**Alex**:" in script_content or "**Sam**:" in script_content
     
-    result = await generator.generate_audio(
-        script_content=script_content,
-        output_path=str(audio_path),
-        voice_mode=voice_mode,
-        quality=quality,
-        duration_scale=duration_scale,
-        voice_id=final_voice_id,
-        callback_url=callback_url
-    )
+    # Generate audio with appropriate generator
+    if is_dialogue:
+        generator = SimpleDialogueAudioGenerator(api_key=config.elevenlabs_api_key)
+        result = await generator.generate_audio(
+            script_content=script_content,
+            output_path=str(audio_path),
+            voice_mode=voice_mode,
+            quality=quality,
+            duration_scale=duration_scale,
+            voice_id=final_voice_id,
+            callback_url=callback_url
+        )
+    else:
+        generator = AudioGenerator(api_key=config.elevenlabs_api_key)
+        result = await generator.generate_audio(
+            script_content=script_content,
+            output_path=str(audio_path),
+            voice_mode=voice_mode,
+            quality=quality,
+            duration_scale=duration_scale,
+            voice_id=final_voice_id,
+            callback_url=callback_url
+        )
     
     result["script_path"] = script_path
     return result
