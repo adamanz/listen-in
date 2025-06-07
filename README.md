@@ -10,8 +10,10 @@ Listen-in is a proof-of-concept MCP (Model Context Protocol) server that reads l
 
 - 📄 Support for text files (.txt) with more formats coming soon
 - 🎙️ Generate monologue-style podcast scripts
+- 🎧 Convert scripts to audio with ElevenLabs integration
 - 🤖 Powered by OpenAI's o3 model
-- 💾 Save scripts as local markdown files
+- 🎵 Multiple voice options and quality levels
+- 💾 Save scripts and audio files locally
 - 🔧 Configurable through MCP server tools
 - 🚀 FastMCP server for easy integration
 
@@ -45,9 +47,10 @@ python -m listen_in.server
 
 2. Configure the server (in your MCP client):
 ```python
-# First, configure with your OpenAI API key
+# Configure with your API keys
 configure(
-    openai_api_key="your-api-key",
+    openai_api_key="your-openai-key",
+    elevenlabs_api_key="your-elevenlabs-key",  # Optional
     output_dir="output",
     default_tone="conversational",
     default_audience="general"
@@ -65,7 +68,37 @@ result = generate_podcast_script(
 )
 ```
 
-4. List generated scripts:
+4. Convert script to audio:
+```python
+# Generate audio with default voice (Rachel)
+audio_result = generate_podcast_audio(
+    script_path=result["script_path"],
+    voice_mode="bulletin",
+    quality="high",
+    duration_scale="default"
+)
+
+# Or specify a voice by name
+audio_result = generate_podcast_audio(
+    script_path=result["script_path"],
+    voice_name="adam",  # Options: rachel, adam, bella, emily, jessica, matthew
+    quality="ultra"
+)
+
+# Or use a specific voice ID
+audio_result = generate_podcast_audio(
+    script_path=result["script_path"],
+    voice_id="21m00Tcm4TlvDq8ikWAM"
+)
+```
+
+5. List available voices:
+```python
+# See preset voices and ElevenLabs voices
+voices = list_available_voices()
+```
+
+6. List generated scripts:
 ```python
 # See all generated scripts
 scripts = list_generated_scripts()
@@ -98,8 +131,16 @@ listen-in/
 │   └── utils/             # Utilities
 ├── output/                # Generated scripts
 ├── examples/              # Example documents
+│   ├── sample_article.txt # Remote work article
+│   └── gdpr_excerpt.txt   # GDPR regulation excerpt
+├── example-script/        # Example generated scripts
+│   └── gdpr_podcast_script.txt
 └── tests/                 # Test suite
 ```
+
+## Example Output
+
+Check out `example-script/gdpr_podcast_script.txt` to see how Listen-in transforms a complex legal document (GDPR) into an engaging, conversational podcast script with natural speech patterns, transitions, and emphasis markers.
 
 ## Development
 
@@ -112,8 +153,10 @@ listen-in/
 ## Roadmap
 
 - [x] Phase 1: Basic text file support with monologue generation
+- [x] ElevenLabs audio generation integration
 - [ ] Phase 2: PDF/DOCX support, dialogue generation
 - [ ] Phase 3: Batch processing, advanced formatting
+- [ ] Future: Background music, sound effects, chapter markers
 
 ## Contributing
 

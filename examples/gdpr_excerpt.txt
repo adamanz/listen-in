@@ -1,0 +1,500 @@
+4.5.2016
+
+EN
+
+Official Journal of the European Union
+
+L 119/1
+
+I
+(Legislative acts)
+
+REGULATIONS
+REGULATION (EU) 2016/679 OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL
+of 27 April 2016
+on the protection of natural persons with regard to the processing of personal data and on the free
+movement of such data, and repealing Directive 95/46/EC (General Data Protection Regulation)
+(Text with EEA relevance)
+THE EUROPEAN PARLIAMENT AND THE COUNCIL OF THE EUROPEAN UNION,
+
+Having regard to the Treaty on the Functioning of the European Union, and in particular Article 16 thereof,
+Having regard to the proposal from the European Commission,
+After transmission of the draft legislative act to the national parliaments,
+Having regard to the opinion of the European Economic and Social Committee (1),
+Having regard to the opinion of the Committee of the Regions (2),
+Acting in accordance with the ordinary legislative procedure (3),
+Whereas:
+(1)
+
+The protection of natural persons in relation to the processing of personal data is a fundamental right.
+Article 8(1) of the Charter of Fundamental Rights of the European Union (the ‘Charter’) and Article 16(1) of the
+Treaty on the Functioning of the European Union (TFEU) provide that everyone has the right to the protection of
+personal data concerning him or her.
+
+(2)
+
+The principles of, and rules on the protection of natural persons with regard to the processing of their personal
+data should, whatever their nationality or residence, respect their fundamental rights and freedoms, in particular
+their right to the protection of personal data. This Regulation is intended to contribute to the accomplishment of
+an area of freedom, security and justice and of an economic union, to economic and social progress, to the
+strengthening and the convergence of the economies within the internal market, and to the well-being of natural
+persons.
+
+(3)
+
+Directive 95/46/EC of the European Parliament and of the Council (4) seeks to harmonise the protection of
+fundamental rights and freedoms of natural persons in respect of processing activities and to ensure the free flow
+of personal data between Member States.
+
+(1) OJ C 229, 31.7.2012, p. 90.
+(2) OJ C 391, 18.12.2012, p. 127.
+(3) Position of the European Parliament of 12 March 2014 (not yet published in the Official Journal) and position of the Council at first
+reading of 8 April 2016 (not yet published in the Official Journal). Position of the European Parliament of 14 April 2016.
+(4) Directive 95/46/EC of the European Parliament and of the Council of 24 October 1995 on the protection of individuals with regard to
+the processing of personal data and on the free movement of such data (OJ L 281, 23.11.1995, p. 31).
+
+L 119/2
+
+EN
+
+Official Journal of the European Union
+
+4.5.2016
+
+(4)
+
+The processing of personal data should be designed to serve mankind. The right to the protection of personal
+data is not an absolute right; it must be considered in relation to its function in society and be balanced against
+other fundamental rights, in accordance with the principle of proportionality. This Regulation respects all
+fundamental rights and observes the freedoms and principles recognised in the Charter as enshrined in the
+Treaties, in particular the respect for private and family life, home and communications, the protection of
+personal data, freedom of thought, conscience and religion, freedom of expression and information, freedom to
+conduct a business, the right to an effective remedy and to a fair trial, and cultural, religious and linguistic
+diversity.
+
+(5)
+
+The economic and social integration resulting from the functioning of the internal market has led to a substantial
+increase in cross-border flows of personal data. The exchange of personal data between public and private actors,
+including natural persons, associations and undertakings across the Union has increased. National authorities in
+the Member States are being called upon by Union law to cooperate and exchange personal data so as to be able
+to perform their duties or carry out tasks on behalf of an authority in another Member State.
+
+(6)
+
+Rapid technological developments and globalisation have brought new challenges for the protection of personal
+data. The scale of the collection and sharing of personal data has increased significantly. Technology allows both
+private companies and public authorities to make use of personal data on an unprecedented scale in order to
+pursue their activities. Natural persons increasingly make personal information available publicly and globally.
+Technology has transformed both the economy and social life, and should further facilitate the free flow of
+personal data within the Union and the transfer to third countries and international organisations, while ensuring
+a high level of the protection of personal data.
+
+(7)
+
+Those developments require a strong and more coherent data protection framework in the Union, backed by
+strong enforcement, given the importance of creating the trust that will allow the digital economy to develop
+across the internal market. Natural persons should have control of their own personal data. Legal and practical
+certainty for natural persons, economic operators and public authorities should be enhanced.
+
+(8)
+
+Where this Regulation provides for specifications or restrictions of its rules by Member State law, Member States
+may, as far as necessary for coherence and for making the national provisions comprehensible to the persons to
+whom they apply, incorporate elements of this Regulation into their national law.
+
+(9)
+
+The objectives and principles of Directive 95/46/EC remain sound, but it has not prevented fragmentation in the
+implementation of data protection across the Union, legal uncertainty or a widespread public perception that
+there are significant risks to the protection of natural persons, in particular with regard to online activity.
+Differences in the level of protection of the rights and freedoms of natural persons, in particular the right to the
+protection of personal data, with regard to the processing of personal data in the Member States may prevent the
+free flow of personal data throughout the Union. Those differences may therefore constitute an obstacle to the
+pursuit of economic activities at the level of the Union, distort competition and impede authorities in the
+discharge of their responsibilities under Union law. Such a difference in levels of protection is due to the
+existence of differences in the implementation and application of Directive 95/46/EC.
+
+(10)
+
+In order to ensure a consistent and high level of protection of natural persons and to remove the obstacles to
+flows of personal data within the Union, the level of protection of the rights and freedoms of natural persons
+with regard to the processing of such data should be equivalent in all Member States. Consistent and
+homogenous application of the rules for the protection of the fundamental rights and freedoms of natural
+persons with regard to the processing of personal data should be ensured throughout the Union. Regarding the
+processing of personal data for compliance with a legal obligation, for the performance of a task carried out in
+the public interest or in the exercise of official authority vested in the controller, Member States should be
+allowed to maintain or introduce national provisions to further specify the application of the rules of this
+Regulation. In conjunction with the general and horizontal law on data protection implementing Directive
+95/46/EC, Member States have several sector-specific laws in areas that need more specific provisions. This
+Regulation also provides a margin of manoeuvre for Member States to specify its rules, including for the
+processing of special categories of personal data (‘sensitive data’). To that extent, this Regulation does not exclude
+Member State law that sets out the circumstances for specific processing situations, including determining more
+precisely the conditions under which the processing of personal data is lawful.
+
+4.5.2016
+
+EN
+
+Official Journal of the European Union
+
+L 119/3
+
+(11)
+
+Effective protection of personal data throughout the Union requires the strengthening and setting out in detail of
+the rights of data subjects and the obligations of those who process and determine the processing of personal
+data, as well as equivalent powers for monitoring and ensuring compliance with the rules for the protection of
+personal data and equivalent sanctions for infringements in the Member States.
+
+(12)
+
+Article 16(2) TFEU mandates the European Parliament and the Council to lay down the rules relating to the
+protection of natural persons with regard to the processing of personal data and the rules relating to the free
+movement of personal data.
+
+(13)
+
+In order to ensure a consistent level of protection for natural persons throughout the Union and to prevent
+divergences hampering the free movement of personal data within the internal market, a Regulation is necessary
+to provide legal certainty and transparency for economic operators, including micro, small and medium-sized
+enterprises, and to provide natural persons in all Member States with the same level of legally enforceable rights
+and obligations and responsibilities for controllers and processors, to ensure consistent monitoring of the
+processing of personal data, and equivalent sanctions in all Member States as well as effective cooperation
+between the supervisory authorities of different Member States. The proper functioning of the internal market
+requires that the free movement of personal data within the Union is not restricted or prohibited for reasons
+connected with the protection of natural persons with regard to the processing of personal data. To take account
+of the specific situation of micro, small and medium-sized enterprises, this Regulation includes a derogation for
+organisations with fewer than 250 employees with regard to record-keeping. In addition, the Union institutions
+and bodies, and Member States and their supervisory authorities, are encouraged to take account of the specific
+needs of micro, small and medium-sized enterprises in the application of this Regulation. The notion of micro,
+small and medium-sized enterprises should draw from Article 2 of the Annex to Commission Recommendation
+2003/361/EC (1).
+
+(14)
+
+The protection afforded by this Regulation should apply to natural persons, whatever their nationality or place of
+residence, in relation to the processing of their personal data. This Regulation does not cover the processing of
+personal data which concerns legal persons and in particular undertakings established as legal persons, including
+the name and the form of the legal person and the contact details of the legal person.
+
+(15)
+
+In order to prevent creating a serious risk of circumvention, the protection of natural persons should be technolo­
+gically neutral and should not depend on the techniques used. The protection of natural persons should apply to
+the processing of personal data by automated means, as well as to manual processing, if the personal data are
+contained or are intended to be contained in a filing system. Files or sets of files, as well as their cover pages,
+which are not structured according to specific criteria should not fall within the scope of this Regulation.
+
+(16)
+
+This Regulation does not apply to issues of protection of fundamental rights and freedoms or the free flow of
+personal data related to activities which fall outside the scope of Union law, such as activities concerning national
+security. This Regulation does not apply to the processing of personal data by the Member States when carrying
+out activities in relation to the common foreign and security policy of the Union.
+
+(17)
+
+Regulation (EC) No 45/2001 of the European Parliament and of the Council (2) applies to the processing of
+personal data by the Union institutions, bodies, offices and agencies. Regulation (EC) No 45/2001 and other
+Union legal acts applicable to such processing of personal data should be adapted to the principles and rules
+established in this Regulation and applied in the light of this Regulation. In order to provide a strong and
+coherent data protection framework in the Union, the necessary adaptations of Regulation (EC) No 45/2001
+should follow after the adoption of this Regulation, in order to allow application at the same time as this
+Regulation.
+
+(18)
+
+This Regulation does not apply to the processing of personal data by a natural person in the course of a purely
+personal or household activity and thus with no connection to a professional or commercial activity. Personal or
+
+(1) Commission Recommendation of 6 May 2003 concerning the definition of micro, small and medium‑sized enterprises (C(2003) 1422)
+(OJ L 124, 20.5.2003, p. 36).
+(2) Regulation (EC) No 45/2001 of the European Parliament and of the Council of 18 December 2000 on the protection of individuals with
+regard to the processing of personal data by the Community institutions and bodies and on the free movement of such data (OJ L 8,
+12.1.2001, p. 1).
+
+L 119/4
+
+EN
+
+Official Journal of the European Union
+
+4.5.2016
+
+household activities could include correspondence and the holding of addresses, or social networking and online
+activity undertaken within the context of such activities. However, this Regulation applies to controllers or
+processors which provide the means for processing personal data for such personal or household activities.
+
+(19)
+
+The protection of natural persons with regard to the processing of personal data by competent authorities for the
+purposes of the prevention, investigation, detection or prosecution of criminal offences or the execution of
+criminal penalties, including the safeguarding against and the prevention of threats to public security and the free
+movement of such data, is the subject of a specific Union legal act. This Regulation should not, therefore, apply
+to processing activities for those purposes. However, personal data processed by public authorities under this
+Regulation should, when used for those purposes, be governed by a more specific Union legal act, namely
+Directive (EU) 2016/680 of the European Parliament and of the Council (1). Member States may entrust
+competent authorities within the meaning of Directive (EU) 2016/680 with tasks which are not necessarily
+carried out for the purposes of the prevention, investigation, detection or prosecution of criminal offences or the
+execution of criminal penalties, including the safeguarding against and prevention of threats to public security, so
+that the processing of personal data for those other purposes, in so far as it is within the scope of Union law,
+falls within the scope of this Regulation.
+
+With regard to the processing of personal data by those competent authorities for purposes falling within scope
+of this Regulation, Member States should be able to maintain or introduce more specific provisions to adapt the
+application of the rules of this Regulation. Such provisions may determine more precisely specific requirements
+for the processing of personal data by those competent authorities for those other purposes, taking into account
+the constitutional, organisational and administrative structure of the respective Member State. When the
+processing of personal data by private bodies falls within the scope of this Regulation, this Regulation should
+provide for the possibility for Member States under specific conditions to restrict by law certain obligations and
+rights when such a restriction constitutes a necessary and proportionate measure in a democratic society to
+safeguard specific important interests including public security and the prevention, investigation, detection or
+prosecution of criminal offences or the execution of criminal penalties, including the safeguarding against and the
+prevention of threats to public security. This is relevant for instance in the framework of anti-money laundering
+or the activities of forensic laboratories.
+
+(20)
+
+While this Regulation applies, inter alia, to the activities of courts and other judicial authorities, Union or
+Member State law could specify the processing operations and processing procedures in relation to the
+processing of personal data by courts and other judicial authorities. The competence of the supervisory
+authorities should not cover the processing of personal data when courts are acting in their judicial capacity, in
+order to safeguard the independence of the judiciary in the performance of its judicial tasks, including decisionmaking. It should be possible to entrust supervision of such data processing operations to specific bodies within
+the judicial system of the Member State, which should, in particular ensure compliance with the rules of this
+Regulation, enhance awareness among members of the judiciary of their obligations under this Regulation and
+handle complaints in relation to such data processing operations.
+
+(21)
+
+This Regulation is without prejudice to the application of Directive 2000/31/EC of the European Parliament and
+of the Council (2), in particular of the liability rules of intermediary service providers in Articles 12 to 15 of that
+Directive. That Directive seeks to contribute to the proper functioning of the internal market by ensuring the free
+movement of information society services between Member States.
+
+(22)
+
+Any processing of personal data in the context of the activities of an establishment of a controller or a processor
+in the Union should be carried out in accordance with this Regulation, regardless of whether the processing itself
+takes place within the Union. Establishment implies the effective and real exercise of activity through stable
+arrangements. The legal form of such arrangements, whether through a branch or a subsidiary with a legal
+personality, is not the determining factor in that respect.
+
+(1) Directive (EU) 2016/680 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with
+regard to the processing of personal data by competent authorities for the purposes of prevention, investigation, detection or
+prosecution of criminal offences or the execution of criminal penalties, and the free movement of such data and repealing Council
+Framework Decision 2008/977/JHA (see page 89 of this Official Journal).
+(2) Directive 2000/31/EC of the European Parliament and of the Council of 8 June 2000 on certain legal aspects of information society
+services, in particular electronic commerce, in the Internal Market (‘Directive on electronic commerce’) (OJ L 178, 17.7.2000, p. 1).
+
+4.5.2016
+
+EN
+
+Official Journal of the European Union
+
+L 119/5
+
+(23)
+
+In order to ensure that natural persons are not deprived of the protection to which they are entitled under this
+Regulation, the processing of personal data of data subjects who are in the Union by a controller or a processor
+not established in the Union should be subject to this Regulation where the processing activities are related to
+offering goods or services to such data subjects irrespective of whether connected to a payment. In order to
+determine whether such a controller or processor is offering goods or services to data subjects who are in the
+Union, it should be ascertained whether it is apparent that the controller or processor envisages offering services
+to data subjects in one or more Member States in the Union. Whereas the mere accessibility of the controller's,
+processor's or an intermediary's website in the Union, of an email address or of other contact details, or the use
+of a language generally used in the third country where the controller is established, is insufficient to ascertain
+such intention, factors such as the use of a language or a currency generally used in one or more Member States
+with the possibility of ordering goods and services in that other language, or the mentioning of customers or
+users who are in the Union, may make it apparent that the controller envisages offering goods or services to data
+subjects in the Union.
+
+(24)
+
+The processing of personal data of data subjects who are in the Union by a controller or processor not
+established in the Union should also be subject to this Regulation when it is related to the monitoring of the
+behaviour of such data subjects in so far as their behaviour takes place within the Union. In order to determine
+whether a processing activity can be considered to monitor the behaviour of data subjects, it should be
+ascertained whether natural persons are tracked on the internet including potential subsequent use of personal
+data processing techniques which consist of profiling a natural person, particularly in order to take decisions
+concerning her or him or for analysing or predicting her or his personal preferences, behaviours and attitudes.
+
+(25)
+
+Where Member State law applies by virtue of public international law, this Regulation should also apply to a
+controller not established in the Union, such as in a Member State's diplomatic mission or consular post.
+
+(26)
+
+The principles of data protection should apply to any information concerning an identified or identifiable natural
+person. Personal data which have undergone pseudonymisation, which could be attributed to a natural person by
+the use of additional information should be considered to be information on an identifiable natural person. To
+determine whether a natural person is identifiable, account should be taken of all the means reasonably likely to
+be used, such as singling out, either by the controller or by another person to identify the natural person directly
+or indirectly. To ascertain whether means are reasonably likely to be used to identify the natural person, account
+should be taken of all objective factors, such as the costs of and the amount of time required for identification,
+taking into consideration the available technology at the time of the processing and technological developments.
+The principles of data protection should therefore not apply to anonymous information, namely information
+which does not relate to an identified or identifiable natural person or to personal data rendered anonymous in
+such a manner that the data subject is not or no longer identifiable. This Regulation does not therefore concern
+the processing of such anonymous information, including for statistical or research purposes.
+
+(27)
+
+This Regulation does not apply to the personal data of deceased persons. Member States may provide for rules
+regarding the processing of personal data of deceased persons.
+
+(28)
+
+The application of pseudonymisation to personal data can reduce the risks to the data subjects concerned and
+help controllers and processors to meet their data-protection obligations. The explicit introduction of ‘pseudony­
+misation’ in this Regulation is not intended to preclude any other measures of data protection.
+
+(29)
+
+In order to create incentives to apply pseudonymisation when processing personal data, measures of pseudonymi­
+sation should, whilst allowing general analysis, be possible within the same controller when that controller has
+taken technical and organisational measures necessary to ensure, for the processing concerned, that this
+Regulation is implemented, and that additional information for attributing the personal data to a specific data
+subject is kept separately. The controller processing the personal data should indicate the authorised persons
+within the same controller.
+
+L 119/6
+
+EN
+
+Official Journal of the European Union
+
+4.5.2016
+
+(30)
+
+Natural persons may be associated with online identifiers provided by their devices, applications, tools and
+protocols, such as internet protocol addresses, cookie identifiers or other identifiers such as radio frequency
+identification tags. This may leave traces which, in particular when combined with unique identifiers and other
+information received by the servers, may be used to create profiles of the natural persons and identify them.
+
+(31)
+
+Public authorities to which personal data are disclosed in accordance with a legal obligation for the exercise of
+their official mission, such as tax and customs authorities, financial investigation units, independent adminis­
+trative authorities, or financial market authorities responsible for the regulation and supervision of securities
+markets should not be regarded as recipients if they receive personal data which are necessary to carry out a
+particular inquiry in the general interest, in accordance with Union or Member State law. The requests for
+disclosure sent by the public authorities should always be in writing, reasoned and occasional and should not
+concern the entirety of a filing system or lead to the interconnection of filing systems. The processing of personal
+data by those public authorities should comply with the applicable data-protection rules according to the
+purposes of the processing.
+
+(32)
+
+Consent should be given by a clear affirmative act establishing a freely given, specific, informed and
+unambiguous indication of the data subject's agreement to the processing of personal data relating to him or her,
+such as by a written statement, including by electronic means, or an oral statement. This could include ticking a
+box when visiting an internet website, choosing technical settings for information society services or another
+statement or conduct which clearly indicates in this context the data subject's acceptance of the proposed
+processing of his or her personal data. Silence, pre-ticked boxes or inactivity should not therefore constitute
+consent. Consent should cover all processing activities carried out for the same purpose or purposes. When the
+processing has multiple purposes, consent should be given for all of them. If the data subject's consent is to be
+given following a request by electronic means, the request must be clear, concise and not unnecessarily disruptive
+to the use of the service for which it is provided.
+
+(33)
+
+It is often not possible to fully identify the purpose of personal data processing for scientific research purposes at
+the time of data collection. Therefore, data subjects should be allowed to give their consent to certain areas of
+scientific research when in keeping with recognised ethical standards for scientific research. Data subjects should
+have the opportunity to give their consent only to certain areas of research or parts of research projects to the
+extent allowed by the intended purpose.
+
+(34)
+
+Genetic data should be defined as personal data relating to the inherited or acquired genetic characteristics of a
+natural person which result from the analysis of a biological sample from the natural person in question, in
+particular chromosomal, deoxyribonucleic acid (DNA) or ribonucleic acid (RNA) analysis, or from the analysis of
+another element enabling equivalent information to be obtained.
+
+(35)
+
+Personal data concerning health should include all data pertaining to the health status of a data subject which
+reveal information relating to the past, current or future physical or mental health status of the data subject. This
+includes information about the natural person collected in the course of the registration for, or the provision of,
+health care services as referred to in Directive 2011/24/EU of the European Parliament and of the Council (1) to
+that natural person; a number, symbol or particular assigned to a natural person to uniquely identify the natural
+person for health purposes; information derived from the testing or examination of a body part or bodily
+substance, including from genetic data and biological samples; and any information on, for example, a disease,
+disability, disease risk, medical history, clinical treatment or the physiological or biomedical state of the data
+subject independent of its source, for example from a physician or other health professional, a hospital, a medical
+device or an in vitro diagnostic test.
+
+(36)
+
+The main establishment of a controller in the Union should be the place of its central administration in the
+Union, unless the decisions on the purposes and means of the processing of personal data are taken in another
+establishment of the controller in the Union, in which case that other establishment should be considered to be
+
+(1) Directive 2011/24/EU of the European Parliament and of the Council of 9 March 2011 on the application of patients' rights in
+cross‑border healthcare (OJ L 88, 4.4.2011, p. 45).
+
+4.5.2016
+
+EN
+
+Official Journal of the European Union
+
+L 119/7
+
+the main establishment. The main establishment of a controller in the Union should be determined according to
+objective criteria and should imply the effective and real exercise of management activities determining the main
+decisions as to the purposes and means of processing through stable arrangements. That criterion should not
+depend on whether the processing of personal data is carried out at that location. The presence and use of
+technical means and technologies for processing personal data or processing activities do not, in themselves,
+constitute a main establishment and are therefore not determining criteria for a main establishment. The main
+establishment of the processor should be the place of its central administration in the Union or, if it has no
+central administration in the Union, the place where the main processing activities take place in the Union. In
+cases involving both the controller and the processor, the competent lead supervisory authority should remain
+the supervisory authority of the Member State where the controller has its main establishment, but the
+supervisory authority of the processor should be considered to be a supervisory authority concerned and that
+supervisory authority should participate in the cooperation procedure provided for by this Regulation. In any
+case, the supervisory authorities of the Member State or Member States where the processor has one or more
+establishments should not be considered to be supervisory authorities concerned where the draft decision
+concerns only the controller. Where the processing is carried out by a group of undertakings, the main
+establishment of the controlling undertaking should be considered to be the main establishment of the group of
+undertakings, except where the purposes and means of processing are determined by another undertaking.
+
+(37)
+
+A group of undertakings should cover a controlling undertaking and its controlled undertakings, whereby the
+controlling undertaking should be the undertaking which can exert a dominant influence over the other
+undertakings by virtue, for example, of ownership, financial participation or the rules which govern it or the
+power to have personal data protection rules implemented. An undertaking which controls the processing of
+personal data in undertakings affiliated to it should be regarded, together with those undertakings, as a group of
+undertakings.
+
+(38)
+
+Children merit specific protection with regard to their personal data, as they may be less aware of the risks,
+consequences and safeguards concerned and their rights in relation to the processing of personal data. Such
+specific protection should, in particular, apply to the use of personal data of children for the purposes of
+marketing or creating personality or user profiles and the collection of personal data with regard to children
+when using services offered directly to a child. The consent of the holder of parental responsibility should not be
+necessary in the context of preventive or counselling services offered directly to a child.
+
+(39)
+
+Any processing of personal data should be lawful and fair. It should be transparent to natural persons that
+personal data concerning them are collected, used, consulted or otherwise processed and to what extent the
+personal data are or will be processed. The principle of transparency requires that any information and communi­
+cation relating to the processing of those personal data be easily accessible and easy to understand, and that clear
+and plain language be used. That principle concerns, in particular, information to the data subjects on the
+identity of the controller and the purposes of the processing and further information to ensure fair and
+transparent processing in respect of the natural persons concerned and their right to obtain confirmation and
+communication of personal data concerning them which are being processed. Natural persons should be made
+aware of risks, rules, safeguards and rights in relation to the processing of personal data and how to exercise their
+rights in relation to such processing. In particular, the specific purposes for which personal data are processed
+should be explicit and legitimate and determined at the time of the collection of the personal data. The personal
+data should be adequate, relevant and limited to what is necessary for the purposes for which they are processed.
+This requires, in particular, ensuring that the period for which the personal data are stored is limited to a strict
+minimum. Personal data should be processed only if the purpose of the processing could not reasonably be

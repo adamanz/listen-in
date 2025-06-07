@@ -176,11 +176,39 @@ HOST: [Natural transition to first main point]
 - Add [PAUSE] markers for natural breaks
 - Note [EMPHASIS] for important points
 
+## Audio Generation with ElevenLabs
+
+### Integration Overview
+Listen-in will use ElevenLabs' Podcast API to convert generated scripts into professional audio files.
+
+### Features
+- **Voice Synthesis**: High-quality, natural-sounding voices
+- **Podcast Optimization**: Purpose-built for podcast content
+- **Multiple Quality Levels**: From standard to ultra-lossless
+- **Async Processing**: Webhook support for long-form content
+- **Voice Selection**: Multiple voice options for different styles
+
+### Implementation
+```bash
+# Generate script and audio
+listen-in --input document.txt --audio --voice "Rachel" --quality high
+
+# Audio-only from existing script
+listen-in --script podcast_script.md --audio-only --quality ultra
+```
+
+### Output Files
+- Script: `output/document_podcast_20240115_103000.md`
+- Audio: `output/document_podcast_20240115_103000.mp3`
+
 ## Future Considerations
-- Audio generation using text-to-speech
+- ✅ Audio generation using text-to-speech (ElevenLabs integration)
 - Multiple language support
 - Integration with podcast platforms
 - Web interface
 - Real-time processing
-- MCP server implementation for integration with AI assistants
+- ✅ MCP server implementation for integration with AI assistants
 - Webhook support for automation workflows
+- Dialogue voice synthesis with multiple speakers
+- Background music and sound effects
+- Automatic chapter markers

@@ -88,18 +88,21 @@ listen-in/
 ```
 
 ## Next Steps
-1. Complete OpenAI integration with o3 model
-2. Implement monologue script generator
-3. Add file output functionality
-4. Test with example documents
+1. ✅ Complete OpenAI integration (using gpt-4-turbo until o3 available)
+2. ✅ Implement monologue script generator
+3. ✅ Add file output functionality
+4. ✅ Test with example documents (GDPR example)
 5. Add error handling and validation
+6. Integrate ElevenLabs for audio generation
+7. Add dialogue script generation (Phase 2)
 
 ## MCP Server Tools
 The FastMCP server exposes the following tools:
 
 ### `configure`
-Configure the server with OpenAI API key and settings.
+Configure the server with API keys and settings.
 - `openai_api_key`: Required OpenAI API key
+- `elevenlabs_api_key`: Optional ElevenLabs API key for audio generation
 - `output_dir`: Directory for generated scripts (default: "output")
 - `default_tone`: Default tone for scripts (default: "conversational")
 - `default_audience`: Default target audience (default: "general")
@@ -111,6 +114,19 @@ Generate a podcast script from a document.
 - `tone`: Optional tone override
 - `audience`: Optional audience override
 - `custom_instructions`: Additional generation instructions
+
+### `generate_podcast_audio`
+Convert a podcast script to audio using ElevenLabs.
+- `script_path`: Path to generated script
+- `voice_mode`: "bulletin" for monologue, "conversation" for dialogue
+- `quality`: Audio quality (standard/high/ultra/ultra_lossless)
+- `duration_scale`: Length preference (short/default/long)
+- `voice_id`: Optional specific voice selection
+- `callback_url`: Optional webhook for async processing
+
+### `list_available_voices`
+List available voices from ElevenLabs for podcast generation.
+Returns voice ID, name, category, and preview URL.
 
 ### `list_generated_scripts`
 List all previously generated podcast scripts.
@@ -190,6 +206,34 @@ Requirements:
 - Custom prompt injection support
 - Multi-language prompt variations
 
+## ElevenLabs Integration
+
+### Overview
+Listen-in will integrate ElevenLabs API to convert generated scripts into high-quality audio podcasts.
+
+### Key Features
+- **Podcast API**: Specialized endpoint for podcast generation
+- **Voice Modes**: 
+  - `bulletin`: Single narrator (matches our monologue style)
+  - `conversation`: Multi-voice dialogue (future feature)
+- **Quality Tiers**:
+  - Standard: 128kbps
+  - High: 192kbps (+20% cost)
+  - Ultra: 192kbps best quality (+50% cost)
+  - Ultra Lossless: 705.6kbps (+100% cost)
+- **Duration Control**: Short (<3min), Default (3-7min), Long (>7min)
+
+### Implementation Plan
+1. Add `elevenlabs` to requirements
+2. Extend `configure` tool with ElevenLabs API key
+3. Create `generate_podcast_audio` tool
+4. Support async audio generation with callbacks
+5. Store audio files alongside scripts
+
+### Cost Model
+- Currently: LLM costs covered, audio generation charged
+- Future: Both LLM and audio generation charged to users
+
 ## Notes for Development
 - Keep API keys secure (configured through MCP server)
 - Add examples of input documents and generated scripts
@@ -198,3 +242,5 @@ Requirements:
 - Consider adding streaming support for large documents
 - Test prompts with diverse document types
 - Iterate on prompts based on output quality
+- Monitor ElevenLabs API usage and costs
+- Implement proper error handling for audio generation failures
