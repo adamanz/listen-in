@@ -248,6 +248,10 @@ async def generate_podcast_audio(
     # Check if it's a dialogue script by looking for dialogue markers
     is_dialogue = "**Alex**:" in script_content or "**Sam**:" in script_content
     
+    import logging
+    logger = logging.getLogger(__name__)
+    logger.info(f"Audio generation - is_dialogue: {is_dialogue}, script preview: {script_content[:200]}...")
+    
     # Generate audio with appropriate generator
     if is_dialogue:
         generator = SimpleDialogueAudioGenerator(api_key=config.elevenlabs_api_key)
