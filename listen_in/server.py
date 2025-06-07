@@ -257,12 +257,7 @@ async def generate_podcast_audio(
         generator = SimpleDialogueAudioGenerator(api_key=config.elevenlabs_api_key)
         result = await generator.generate_audio(
             script_content=script_content,
-            output_path=str(audio_path),
-            voice_mode=voice_mode,
-            quality=quality,
-            duration_scale=duration_scale,
-            voice_id=final_voice_id,
-            callback_url=callback_url
+            output_path=str(audio_path)
         )
     else:
         generator = AudioGenerator(api_key=config.elevenlabs_api_key)
