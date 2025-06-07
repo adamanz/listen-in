@@ -2,6 +2,35 @@
 
 Transform local documents into engaging podcast scripts using AI.
 
+## Architecture
+
+```
+┌─────────────┐     ┌─────────────┐     ┌──────────────┐     ┌─────────────┐
+│   Documents │     │  MCP Server │     │  Generators  │     │   Output    │
+├─────────────┤     ├─────────────┤     ├──────────────┤     ├─────────────┤
+│  📄 .txt    │────▶│             │────▶│ 👤 Monologue │────▶│ 📝 Script   │
+│  📑 .pdf    │     │  FastMCP    │     │ 👥 Dialogue  │     │    (.md)    │
+└─────────────┘     │   Server    │     │ 🤖 Agent/o3  │     └──────┬──────┘
+                    └─────────────┘     └──────────────┘            │
+                                                                     ▼
+                    ┌─────────────┐     ┌──────────────┐     ┌─────────────┐
+                    │ ElevenLabs  │     │Audio Engines │     │   🎵 MP3    │
+                    │   API Key   │────▶│ 🎙️ Standard  │────▶│   Audio     │
+                    └─────────────┘     │ 🎭 Dialogue  │     └─────────────┘
+                                       └──────────────┘
+```
+
+## Quick Start
+
+```bash
+# In Claude Desktop, after configuring the MCP server:
+generate_podcast_script(
+    file_path="/path/to/document.pdf",
+    style="dialogue",
+    tone="fun"
+)
+```
+
 ## Overview
 
 Listen-in is a proof-of-concept MCP (Model Context Protocol) server that reads local documents and generates natural, conversational podcast scripts using OpenAI's API. Built with FastMCP for seamless integration with AI assistants like Claude.
